@@ -1,0 +1,56 @@
+% Peso de la caja 40 lbs
+%W = 40;
+
+% Vector de la caja
+A = [0 0 0];
+
+% Datos que ingresa el usuario
+B = input('Ingrese las coordenadas del punto b en el formato [x,y,z]: ');
+
+C = input('Ingrese las coordenadas del punto c en el formato [x,y,z]: ');
+
+D = input('Ingrese las coordenadas del punto d en el formato [x,y,z]: ');
+
+AB = B - A;
+AC = C - A;
+AD = D - A;
+
+% Elección del peso debido a que el usuario puede variarlo
+ w = input('Ingrese un rango de peso entre 10 y 150 para la caja: ');
+ while w <= 10 || w > 150
+     w = input('ERROR >:| - Ingrese un rango de peso entre 10 y 150 para la caja: ');
+ end
+
+ 
+ % Cálculo de la norma de los vectores 
+ n_AB = norm(AB);
+ n_AC = norm(AC);
+ n_AD = norm(AD);
+ 
+ % Cálculo de Fuerzas
+ F_AB = AB/n_AB;
+ F_AC = AC/n_AC;
+ F_AD = AD/n_AD;
+ 
+ % Sistema de ecuaciones
+ matriz = [F_AB; F_AC; F_AD];
+ 
+ matriz_inversa = inv(matriz);
+ 
+ E = [0;0; w];
+ 
+ %solucion = matriz_inversa*E;
+ solucion = inv(matriz)*E;
+ 
+ solucion;
+ 
+fprintf('Resultado: %.2d %.2d %.2d', solucion) 
+
+plotmatrix(solucion);
+
+%Ingresar a este enlace para revisar el programa finalizado
+% https://github.com/paolayalap/Mecanica.git
+ 
+ title = sprintf('Tensiones')
+ xlabel('Distancia (pulg)')
+ ylabel('Fuerza (lbs)')
