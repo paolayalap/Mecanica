@@ -1,0 +1,27 @@
+ 
+% Cálculo de la norma de los vectores 
+function n_AB = f(A,B)
+ n_AB = norm(AB);
+end
+
+function n_AC = g(A,C)
+ n_AC = norm(AC);
+end
+
+function n_AD = h(A,D)
+ n_AD = norm(AD);
+end
+ 
+ 
+ % Cálculo de Fuerzas
+ F_AB = AB/n_AB;
+ F_AC = AC/n_AC;
+ F_AD = AD/n_AD;
+ 
+ % Estas funciones se llaman desde el main principal, realmente funciona 
+ % mediante el uso de funciones como también calculando los datos de fuerzas 
+ % y vectores unitarios algebraicamente. 
+ % La finalidad de las funciones es tener un espacio determinado donde el usuario
+ % no deba realizar otra vez la misma programación para un nuevo código sino que
+ % este espacio más adelante solo se llama por medio de "help" y la función debería 
+ % correr.
