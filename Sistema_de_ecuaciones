@@ -1,0 +1,25 @@
+% Elección del peso debido a que el usuario puede variarlo
+w = input('Ingrese un rango de peso entre 10 y 150 para la caja: ');
+ while w <= 10 || w > 150
+     w = input('ERROR >:| - Ingrese un rango de peso entre 10 y 150 para la caja: ');
+ end
+
+
+% Sistema de ecuaciones
+ matriz = [F_AB; F_AC; F_AD];
+ 
+ matriz_inversa = inv(matriz);
+ 
+ E = [0;0; w];
+ 
+ %solucion = matriz_inversa*E;
+ solucion = inv(matriz)*E;
+ 
+ solucion;
+ 
+ % Como funcion también podría haberse escrito como 
+ function matriz[F_AB; F_AC; F_AD] = matriz_in(AB/n_AB, AC/n_AC, AD/n_AD,)
+    inv(matriz);
+    E = [0;0;w];
+    solucion = inv(matriz)*E
+ end
